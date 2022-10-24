@@ -7,6 +7,9 @@ import java.util.List;
 public class GenericWizard {
 
   public <T> List<T> toList(T[] array) {
+    if (array == null) {
+      return new ArrayList<>();
+    }
     return new ArrayList<>(Arrays.asList(array));
   }
 }

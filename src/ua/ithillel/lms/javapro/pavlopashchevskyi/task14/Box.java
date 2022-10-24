@@ -25,11 +25,16 @@ public class Box<T extends Fruit> {
   }
 
   public boolean compare(Box<? extends Fruit> b) {
+    if (b == null) {
+      return false;
+    }
     return b.getWeight() == this.getWeight();
   }
 
   public void merge(Box<T> b) {
-    this.fruits.addAll(b.fruits);
-    b.fruits.removeAll(this.fruits);
+    if (b != null) {
+      this.fruits.addAll(b.fruits);
+      b.fruits.removeAll(this.fruits);
+    }
   }
 }
